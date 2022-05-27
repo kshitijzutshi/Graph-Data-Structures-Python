@@ -104,3 +104,81 @@ We start from Node A and move to B, then A move to C
 5. In the queue - E and then F; Pop the queue; E is the **Current** node; E and F both have no neighbours so we print E and then F
 
 ![image](https://user-images.githubusercontent.com/13203059/170762396-db949565-5f23-4086-bd3e-0e19d6785f8e.png)
+
+### Problem 1 - Has Path 
+
+Write a function, hasPath, that takes in an object representing the adjacency list of a **directed acyclic graph** and two nodes (src, dst). The function should return a boolean indicating whether or not there exists a directed path between the source and destination nodes.
+
+NOTE:
+
+Cyclic vs Acyclic graph - If I start with a node and end up back in it, its cyclic else its not.
+
+**Test cases** - 
+
+```
+# Test case 1
+
+const graph = {
+  f: ['g', 'i'],
+  g: ['h'],
+  h: [],
+  i: ['g', 'k'],
+  j: ['i'],
+  k: []
+};
+
+hasPath(graph, 'f', 'k'); // true
+
+# Test Case 2
+
+const graph = {
+  f: ['g', 'i'],
+  g: ['h'],
+  h: [],
+  i: ['g', 'k'],
+  j: ['i'],
+  k: []
+};
+
+hasPath(graph, 'f', 'j'); // false
+
+```
+
+Test Case 1 Image:
+
+![image](https://user-images.githubusercontent.com/13203059/170767209-114977c7-581e-4788-8d20-9e0cda0666dc.png)
+
+### Problem 2 - Undirected Path
+
+Write a function, undirectedPath, that takes in an array of edges for an undirected graph and two nodes (nodeA, nodeB). The function should return a boolean indicating whether or not there exists a path between nodeA and nodeB.
+
+
+**Test Cases**
+
+```
+# test case 1
+
+const edges = [
+  ['i', 'j'],
+  ['k', 'i'],
+  ['m', 'k'],
+  ['k', 'l'],
+  ['o', 'n']
+];
+
+undirectedPath(edges, 'j', 'm'); // -> true
+
+# test case 2
+
+const edges = [
+  ['i', 'j'],
+  ['k', 'i'],
+  ['m', 'k'],
+  ['k', 'l'],
+  ['o', 'n']
+];
+
+undirectedPath(edges, 'k', 'o'); // -> false
+
+
+```
